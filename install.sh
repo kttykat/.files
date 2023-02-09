@@ -37,12 +37,14 @@ else
     echo "\n\nOh My ZSH: "
 
     SHELL=$(ps -p $$ | awk '{print $4}' | tail -n1)
-    if [ $SHELL != "/bin/zsh" ]; then
-    env zsh -c "sh -c '$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)'"
+
+    if [ "$SHELL" != "/bin/zsh" ]; then
+    env zsh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     exec zsh
     else
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     fi
+
 
     echo "\n\nI3: "
 
